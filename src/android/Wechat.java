@@ -626,13 +626,13 @@ public class Wechat extends CordovaPlugin {
         return null;
     }
 
-    public static String getAppId() {
+    /*public static String getAppId() {
         if (appId == null) {
             appId = preferences.getString(WXAPPID_PROPERTY_KEY, "");
         }
 
         return appId;
-    }
+    }*/
 
     /**
      * Get saved app id

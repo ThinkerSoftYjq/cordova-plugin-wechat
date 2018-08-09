@@ -104,10 +104,10 @@ public class Wechat extends CordovaPlugin {
 
         super.pluginInitialize();
 
-        String id = getAppId();
+        //String id = getAppId();
 
         // save app id
-        saveAppId(cordova.getActivity(), id);
+        saveAppId(cordova.getActivity(), "wxdffdb35a8cc3a6cd");
 
         // init api
         initWXAPI();

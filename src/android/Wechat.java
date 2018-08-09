@@ -103,9 +103,11 @@ public class Wechat extends CordovaPlugin {
     protected void pluginInitialize() {
 
         super.pluginInitialize();
-        
+
+        String id = getAppId();
+
         // save app id
-        saveAppId(cordova.getActivity(), "wxdffdb35a8cc3a6cd");
+        saveAppId(cordova.getActivity(), id);
 
         // init api
         initWXAPI();
@@ -117,7 +119,7 @@ public class Wechat extends CordovaPlugin {
         IWXAPI api = getWxAPI(cordova.getActivity());
 
         if (api != null) {
-            api.registerApp("wxdffdb35a8cc3a6cd");
+            api.registerApp(getAppId());
         }
     }
 
@@ -278,7 +280,7 @@ public class Wechat extends CordovaPlugin {
 
         try {
             final String appid = params.getString("appid");
-            final String savedAppid = "wxdffdb35a8cc3a6cd";
+            final String savedAppid = getAppId();
             if (!savedAppid.equals(appid)) {
                 this.saveAppId(cordova.getActivity(), appid);
             }
@@ -330,7 +332,7 @@ public class Wechat extends CordovaPlugin {
                ChooseCardFromWXCardPackage.Req req = new ChooseCardFromWXCardPackage.Req();
 
                try {
-                   req.appId = "wxdffdb35a8cc3a6cd";
+                   req.appId = getAppId();
                    req.cardType = "INVOICE";
                    req.signType = params.getString("signType");
                    req.cardSign = params.getString("cardSign");
@@ -622,6 +624,14 @@ public class Wechat extends CordovaPlugin {
         }
 
         return null;
+    }
+
+    public static String getAppId() {
+        if (appId == null) {
+            appId = preferences.getString(WXAPPID_PROPERTY_KEY, "");
+        }
+
+        return appId;
     }
 
     /**

@@ -126,7 +126,7 @@ public class Wechat extends CordovaPlugin {
      * @param ctx
      * @return
      */
-    public static IWXAPI getWxAPI(Context ctx) {
+    public IWXAPI getWxAPI(Context ctx) {
         if (wxAPI == null) {
             String appId = getSavedAppId(ctx);
 

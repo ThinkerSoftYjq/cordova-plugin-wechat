@@ -595,7 +595,7 @@ public class Wechat extends CordovaPlugin {
         return null;
     }
 
-    public static String getAppId() {
+    public String getAppId() {
         if (appId == null) {
             appId = preferences.getString(WXAPPID_PROPERTY_KEY, "");
         }
@@ -608,7 +608,7 @@ public class Wechat extends CordovaPlugin {
      * @param ctx
      * @return
      */
-    public static String getSavedAppId(Context ctx) {
+    public String getSavedAppId(Context ctx) {
         SharedPreferences settings = ctx.getSharedPreferences(PREFS_NAME, 0);
         return settings.getString(WXAPPID_PROPERTY_KEY, "");
     }
@@ -618,7 +618,7 @@ public class Wechat extends CordovaPlugin {
      * @param ctx
      * @param id
      */
-    public static void saveAppId(Context ctx, String id) {
+    public void saveAppId(Context ctx, String id) {
         if (id.isEmpty()) {
             return ;
         }

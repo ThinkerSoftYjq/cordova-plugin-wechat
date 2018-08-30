@@ -629,7 +629,7 @@ public class Wechat extends CordovaPlugin {
         editor.commit();
     }
 
-    public static CallbackContext getCurrentCallbackContext() {
+    public CallbackContext getCurrentCallbackContext() {
         return currentCallbackContext;
     }
 
